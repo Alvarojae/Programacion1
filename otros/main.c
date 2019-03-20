@@ -17,7 +17,8 @@ int main()
 
     if(dato1==dato2)
     {
-
+        dato1=(char)dato1;
+        dato2=(char)dato2;
         dato4=dato1+dato2;
     }else
     {
@@ -30,7 +31,7 @@ int main()
     }
     }
 
-    printf("El resultado es %d %", dato3);
+    printf("El resultado es %c", dato4);
     return 0;
 }
 
