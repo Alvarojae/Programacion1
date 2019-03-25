@@ -17,6 +17,8 @@ int main()
 
     if(dato1==dato2)
     {
+
+
         dato1=(char)dato1;
         dato2=(char)dato2;
         dato4=dato1+dato2;

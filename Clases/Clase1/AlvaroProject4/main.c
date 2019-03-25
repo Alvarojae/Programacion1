@@ -11,3 +11,8 @@ int main()
 }
 
 //scanf("%d", &numero);(!!solo en scanf())
+
+for(contador=0;contador<5;contador++)
+{
+
+}
