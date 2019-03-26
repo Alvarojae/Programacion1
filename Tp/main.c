@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "alvaro.h"
 
 int main()
 {
@@ -12,52 +13,26 @@ int main()
     float multiplicacion;
     float factorialA;
     float factorialB;
-    float contadorFA;
-    float contadorFB;
 
     printf("ingresar primer dato: ");
     scanf("%f", &A);
 
-    printf("ingresar segundo dato; ");
+    printf("ingresar segundo dato: ");
     scanf("%f", &B);
 
+    factorialA=factorialAC (A);
+    factorialB=factorialBC(B);
+    suma=sumaC(A,B);
+    resta=restaC(A,B);
+    divicion=divicionC(A,B);
+    multiplicacion=multiplcacionC(A,B);
 
-    contadorFA=A;
-    factorialA=A;
-    while(contadorFA>1)
-    {
-        contadorFA=contadorFA-1;
-        factorialA=factorialA*contadorFA;
-
-    }
-
-    contadorFB=B;
-    factorialB=B;
-    while(contadorFB>1)
-    {
-        contadorFB=contadorFB-1;
-        factorialB=factorialB*contadorFB;
-
-    }
-
-
-    suma=A+B;
-    resta=A-B;
-    divicion=A/B;
-    multiplicacion=A*B;
-
-
-
-
-    printf("El resultado de A+B es: %f\n",suma);
-    printf("El resultado de A-B es: %f\n",resta);
-    printf("El resultado de A/B es: %f\n",divicion);
-    printf("El resultado de A*B es: %f\n",multiplicacion);
-    printf("El factorial de A es: %f y el factorial de %f es: \n",factorialA,factorialB);
-
-
-
-
+    printf("El resultado de A+B es: %.0f\n",suma);
+    printf("El resultado de A-B es: %.0f\n",resta);
+    printf("El resultado de A/B es: %.2f\n",divicion);
+    printf("El resultado de A*B es: %.0f\n",multiplicacion);
+    printf("El factorial de  A  es: %.0f\n",factorialA);
+    printf("El factorial de  B  es: %.0f\n",factorialB);
 
     return 0;
 }

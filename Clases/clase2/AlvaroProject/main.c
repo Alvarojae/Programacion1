@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int numeroMayor (dato,dato1,dato2);
+#include "alvaro.h"
 
 int main()
 {
@@ -20,7 +20,7 @@ int main()
     scanf("%d", &dato2);
 
 
-    datoMayor=numeroMayor(dato,dato1,dato2);
+    datoMayor=numeroMayor( dato,  dato1, dato2);
 
 
 
@@ -35,21 +35,5 @@ int main()
 }
 
 
-int numeroMayor (dato,dato1,dato2)
-{
-    int datoMayor;
 
-    if(dato>=dato1 && dato>=dato2)
-    {
-        datoMayor=dato;
-    }else
-    {
-        if(dato1>=dato && dato1>=dato2)
-    {
-        datoMayor=dato1;
-    }else
-        datoMayor=dato2;
-    }
 
-    return datoMayor;
-}
