@@ -1,92 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float factorialAC (float A)
+float factorial(float x)
 {
+
     float factorial;
     float contador;
-    contador=A;
-    factorial=A;
+    contador=x;
+    factorial=x;
 
-    if(factorial>=0)
-    {
 
-    while(contador>1)
+    if(factorial==0)
     {
-        contador=contador-1;
-        factorial=factorial*contador;
-    }
-    return factorial;
+        factorial=1;
+        return factorial;
     }
     else
     {
-        printf("No existe factorial negativo\n");
-    }
-    return 0;
 
-}
-
-float factorialBC(float B)
-{
-    float factorial;
-    float contador;
-    contador=B;
-    factorial=B;
-    if(factorial>0)
-    {
     while(contador>1)
     {
         contador=contador-1;
         factorial=factorial*contador;
     }
-
     return factorial;
-    }else
-    {
-        printf("No existe factorial negativo\n");
+
     }
-    return 0;
+
+
 }
 
 
-
-
-   float sumaC(float A, float B)
-   {
+float suma(float x, float y)
+{
     float suma;
-    suma=A+B;
+    suma=x+y;
     return suma;
-   }
+}
 
-   float restaC(float A, float B)
-   {
+float resta(float x, float y)
+{
     float resta;
-    resta=A-B;
+    resta=x-y;
     return resta;
-   }
+}
 
-   float divicionC(float A, float B)
-   {
-       if(B==0)
-       {
-            printf("no se puede dividir por cero\n\n" );
+float divicion(float x, float y)
+{
 
-       }else
-       {
-            float divicion;
-            divicion=A/B;
-            return divicion;
-       }
+    float divicion;
+    divicion=x/y;
+    return divicion;
+
     return 0;
-   }
+}
 
-   float multiplcacionC(float A, float B)
-   {
+float multiplcacion(float x, float y)
+{
     float multiplicacion;
-    multiplicacion=A*B;
+    multiplicacion=x*y;
 
     return multiplicacion;
-   }
+}
 
 
 
