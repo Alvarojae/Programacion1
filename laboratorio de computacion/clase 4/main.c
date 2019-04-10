@@ -97,7 +97,7 @@ int main()
 */
 
 /** \estructura4
-*/
+
 struct datosPersonales
 {
     char nombre[20];
@@ -151,10 +151,88 @@ int main()
 
 }
 
+*/
+
+/** \estructura4
+*/
+struct datosPersonales
+{
+    char nombre[20];
+    char apellido[20];
+    char calle[20];
+    int edad;
+    int numero;
+
+
+};
+int main()
+{
+     struct datosPersonales vecAgenda[3], vecContactos[3], vecAmigos[3];
+     int i;
+
+    for(int i=0;i<3;i++)
+    {
+      fflush(stdin);
+      printf("\ningrese el nombre: ");
+      gets(vecAgenda[i].nombre);
+
+      printf("ingrese el apellido: ");
+      gets(vecAgenda[i].apellido);
+
+      printf("ingrese la calle: ");
+      gets(vecAgenda[i].calle);
+
+      fflush(stdin);
+
+
+      printf("ingrese la edad: ");
+      scanf("%d", &vecAgenda[i].edad);
+
+      printf("ingrese numero de calle: ");
+      scanf("%d", &vecAgenda[i].numero);
+
+    }
 
 
 
+    for(i=0;i<3;i++)
+    {
+           printf("\nEl nombre es: %s", vecAgenda[i].nombre);
+           printf("\nEl apellido es: %s ", vecAgenda[i].apellido);
+           printf("\nLa edad es: %d ", vecAgenda[i].edad);
+           printf("\nLa calle es: %s %d\n-------------------------", vecAgenda[i].calle, vecAgenda[i].numero);
+    }
 
+
+
+    for(i=0;i<3;i++)
+    {
+        strcpy(vecContactos[i].nombre,vecAgenda[i].nombre);
+        strcpy(vecContactos[i].apellido,vecAgenda[i].apellido);
+        strcpy(vecContactos[i].calle,vecAgenda[i].calle);
+        vecContactos[i].numero=vecAgenda[i].numero;
+        printf("\n Nombre %d copiado %s ", i, vecContactos[i].nombre);
+        printf("\n Apellido %d copiado %s ", i, vecContactos[i].apellido);
+        printf("\n Calle %d copiado %s ", i, vecContactos[i].calle);
+        printf("\n numero %d copiado %s ", i, vecContactos[i].numero);
+
+    }
+
+    for(i=0;i<3;i++)
+    {
+        vecAmigos[i]=vecContactos[i];
+        printf("\n amigos/nombres %d amigos copiados %s ", i, vecAmigos[i].nombre);
+        printf("\n amigos/apellido %d amigos copiados %s ", i, vecAmigos[i].apellido);
+        printf("\n amigos/calle  %d amigos copiados %s ", i, vecAmigos[i].calle);
+        printf("\n amigos/numero %d amigos copiados %s ", i, vecAmigos[i].numero);
+
+
+    }
+
+       return 0;
+
+
+}
 
 
 
