@@ -7,7 +7,7 @@
 #define TAM 2
 
 
-int menu();
+
 
 
 

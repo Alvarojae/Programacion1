@@ -39,7 +39,7 @@ void mostrarEmpleado(eEmpleado emp){
 void mostrarEmpleados(eEmpleado vec[], int tam){
     int contador = 0;
 
-    printf(" Legajo  Nombre     Sexo      Sueldo   Nacimiento\n\n");
+    printf(" Legajo          Nombre  Sexo   sueldo   Nacimiento\n\n");
     for(int i=0; i < tam; i++){
         if(vec[i].ocupado == 1){
             mostrarEmpleado(vec[i]);
@@ -138,6 +138,46 @@ else{
      }
 
 }
-}
 
+}
+/*
+int buscarSector()
+{
+    for(i=0;i<CANT_SECT;i++)
+    {
+        printf("%d %s\n",sectores[i].id,sectpres[i].desc)
+        {
+            printf("ingrese sectores a buscar: ")
+            scanf("/d",sectorAux)
+        }
+    }
+    for(i=0; i<CANT_SECT;i++)
+    {
+        for(j=0;j<CANT_EMP;j++)
+        {
+            if(sectorAux==sectores[i].id && sectores[i].id ==emp[j].idSector)
+            {
+                printf("%d %s %s",emp[i].legajo,amp[j].nombre,sectores[i].desc)
+            }
+        }
+    }
+}
+*/
+/**< ordenar */
+/**<
+eEmpleado auxEmp
+for(i=0;i<CANT_EMP-1;i++)
+{
+    for(j=i+1;j<CANT_EMP,j++)
+    {
+        if(strcmp(emp[i].nombre,emp[j].nombre)>0)
+        {
+            auxEmp=emp[i];
+            emp[i]=emp[j];
+            emp[j]=auxEmp;
+        }
+    }
+
+
+}*/
 
