@@ -214,3 +214,32 @@ void mostrarCantEmpleadosXSector(eEmpleado empleados[], int tam, eSector sectore
         printf("Cantidad: %d\n\n", contador);
     }
 }
+
+/**< eEmpleado/eAlrmuerzo/eMenu */
+//for(empleados )i    //agarro el legajo del empleado
+//    for(almuerzo)j  //
+//        for(menu)k  //
+
+void listadoMenuPorEmpleado {eEmpleado empleados[],eMenu menues[],eAlmuerzo almuerzos[],int cantEmp , int cantMenu}
+{
+
+
+for(int i=0; i<cantMenu; i++)
+    {
+
+    for(int j=0; j<(cantMenu * cantEmp); j++) //recorro los almuerzos
+    {
+        if(menues[i].id == almuerzos[j].menuid ) //busco la interseccion
+        {
+            for(int k=0,k<cantEmp ,k++ )
+            {
+                if(empleados[k].isEmpty ==1 && almuerzos[j].empleadolegajo == empleados[k].legajo)
+                {
+                    printf("%d %s %s",empleados[k].legajo, empleados[k].nombre, menues[i].descripciones )
+                }
+            }
+        }
+
+    }
+}
+}

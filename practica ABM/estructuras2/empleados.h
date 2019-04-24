@@ -2,6 +2,26 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <conio.h>
+typedef struct {
+
+int dia,mes,year;
+
+} eFecha;
+
+typedef struct {
+
+//empleadoLegajo
+//menuCodigo
+//eFecha
+
+}eAlmuerzo;
+
+typedef struct {
+
+    int id;
+    char descripcion[20];
+
+}eMenu;
 
 typedef struct
 {

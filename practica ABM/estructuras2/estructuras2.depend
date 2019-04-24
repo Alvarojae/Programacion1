@@ -52,3 +52,24 @@
 	<conio.h>
 	"empleados.h"
 
+1556110518 source:c:\users\alumno\desktop\practica v\estructuras2\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+	<string.h>
+
+1556110507 c:\users\alumno\desktop\practica v\estructuras2\empleados.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1556111455 source:c:\users\alumno\desktop\practica v\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+

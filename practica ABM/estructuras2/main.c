@@ -13,8 +13,23 @@
 
 int main()
 {
+
     char seguir = 's';
     char confirma;
+    eMenu menues[ ]={
+        {1,"sopa"},
+        {2,"ensalada"},
+        {3,"milanesa"},
+        {4,"tostadas"},
+        {5,"pollo"},
+        {6,"fideos"},
+        {7,"sanguches"},
+        {8,"tarta"},
+        {9,"pizza"},
+        {10,"hamburgesas veganas"},
+    };
+
+
     eSector sectores[] =
     {
         {1, "Sistemas"},
