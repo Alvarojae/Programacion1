@@ -36,10 +36,10 @@ void borrarBaseDeDatos(sEmpleado vec[], int tam)
 
 }
 
-void mostrarEmpleado (sEmpleado emp, sSector sector[], int tam)
+void mostrarEmpleado (sSector sectores[], int tam, sEmpleado emp)
 {
     char descripcion[20];
-    obtenerSector(sector, tam, emp.idSectores, descripcion);
+    obtenerSector(sectores, tam, emp.idSector, nombreSector);
     printf("%8d  %10s  %6c  %8.f  %2d/%d/%d %s \n", emp.legajo, emp.nombre, emp.genero, emp.sueldo, emp.fechNac.dia, emp.fechNac.mes, emp.fechNac.year, descripcion);
 }
 

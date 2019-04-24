@@ -8,3 +8,29 @@
 
 1556068901 c:\users\alvaro\desktop\abm\empleados.h
 
+1556071536 source:c:\users\alvaro\desktop\programacion1\abm\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"Empleados.h"
+	"Input.h"
+
+1556072274 c:\users\alvaro\desktop\programacion1\abm\empleados.h
+
+1556068901 c:\users\alvaro\desktop\programacion1\abm\input.h
+
+1556068901 source:c:\users\alvaro\desktop\programacion1\abm\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1556072089 source:c:\users\alvaro\desktop\programacion1\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	"Empleados.h"
+

@@ -27,15 +27,14 @@ typedef struct {
 } sEmpleado;
 
 int menuDeOpciones();
-void borrarBaseDeDatos(sEmpleado vec[], int tam);
-void mostrarGrupo ( sEmpleado emp[], int tam, sSector sectorcito[]);
-int buscarEspacioLibre (sEmpleado emp[], int tam);
-int buscarEmpleado(sEmpleado emp[], int tam, int legajo);
-void altaEmpleado (sEmpleado emp[], int tam);
-void bajaEmpleado (sEmpleado emp[], int tam);
-void modificacionEmpleado (sEmpleado emp[], int tam);
-void ordenarPor(sEmpleado emp[], int tam);
-void obtenerSector (sSector sectores[], int tam, int id, char desc[]);
-void mostrarPorSector ( sEmpleado emp[], sSector succ[], int tam, int tam2);
+void inicializarEmpleados(sEmpleado vec[], int tam);
+void mostrarEmpleado(sSector sectores[], int tam, sEmpleado emp);
+void mostrarEmpleados(sEmpleado vec[], int tam, sSector sectores[], int tamSector);
+int buscarLibre(sEmpleado vec[], int tam);
+int buscarEmpleado(sEmpleado vec[], int tam, int legajo);
+void altaEmpleado(sEmpleado vec[], int tam, sSector sectores[], int tamSector);
+int obtenerSector(sSector sectores[], int tam, int id, char desc[]);
+void mostrarSectoresConEmpleados(sEmpleado empleados[], int tam, sSector sectores[], int tamSec);
+void mostrarCantEmpleadosXSector(sEmpleado empleados[], int tam, sSector sectores[], int tamSec);
 
 #endif

@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <ctype.h>
-#include "Empleados.h"
+#include <conio.h>
+#include "empleados.h"
+
+
+
 #define TAM 12
 #define TAMSEC 5
 
+
+
 int main()
 {
-    char confirma;
     char seguir = 's';
-
-
-    sSector sectores[] = {
+    char confirma;
+    eSector sectores[] =
+    {
         {1, "Sistemas"},
         {2, "RRHH"},
         {3, "Compras"},
@@ -20,8 +24,8 @@ int main()
         {5, "Legales"},
 
     };
-
-    sEmpleado lista[] = {
+    eEmpleado lista[TAM]=
+    {
         {1234, "Juan", 'm', 30000,1, 1},
         {2222, "Ana", 'f', 32000, 2,1},
         {2211, "Jorge", 'm', 28000, 2,1},
@@ -34,12 +38,15 @@ int main()
         {7654, "Diego", 'm', 35000,1, 1},
         {9040, "Viviana", 'f', 47000, 1,1},
         {7439, "Gustavo", 'm', 25000, 4,1}
-        };
-    do {
+    };
+    //inicializarEmpleados(lista, TAM);
 
-        system("cls");
 
-        switch (menuDeOpciones())
+
+
+    do
+    {
+        switch(menu())
         {
 
         case 1:
@@ -95,7 +102,10 @@ int main()
             printf("\n Opcion invalida\n\n");
             system("break");
         }
-    } while (confirma != 's');
+    }
+    while(seguir == 's');
 
     return 0;
 }
+
+

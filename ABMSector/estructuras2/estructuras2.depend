@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1555333705 source:c:\users\alumno\desktop\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1555944002 source:c:\users\alumno\desktop\estructuraslunes\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1556073313 source:c:\users\alvaro\desktop\primer-cuatrimestre---utnfra-en-c\abmsector\estructuras2\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
+1556073170 c:\users\alvaro\desktop\primer-cuatrimestre---utnfra-en-c\abmsector\estructuras2\empleados.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1556073214 source:c:\users\alvaro\desktop\primer-cuatrimestre---utnfra-en-c\abmsector\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
