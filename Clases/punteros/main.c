@@ -41,7 +41,7 @@ int main()
     return 0;
 }
 -------------------------------------
-*/
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,3 +62,110 @@ void leerPuntero(int* p)
    // printf("%d",*p);
    *p = 38;
 }
+------------------------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int x = 10;
+    int* p = &x;
+    int** r = &p;
+    printf("%d\n", **r);
+    return 0;
+}
+
+---------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int vec[]={3, 5, 2, 4 , 3};
+
+
+    printf("Esto toma el primer valor del vec(indice 0) = %d\n",*vec  );
+    printf("Esto toma el primer valor del vec(indice 0) = %d\n",*(vec+1));
+
+for(int i=0; i <5 ; i++)
+{
+    printf("indice = %d\n valor= %d\n",i,*(vec+i));
+}
+
+
+
+
+    return 0;
+}
+-------------------------------------------------------------
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 5
+void mostrarVector1(int vec[], int tam); //(vectorial)
+void mostrarVector2(int vec[], int tam);//(puntero)
+void mostrarVector3(int* vec, int tam); //(puntero pero muestra vectorial)
+void mostrarVector4(int* vec, int tam); //(vector pero muestra puntero)
+
+
+
+int main()
+{
+    int numeros[]={3, 5, 2, 4 , 1};
+    mostrarVector1(numeros,TAM);
+    mostrarVector2(numeros,TAM);
+    mostrarVector3(numeros,TAM);
+    mostrarVector3(numeros,TAM);
+
+
+   return 0;
+}
+    void mostrarVector1(int vec[], int tam)
+    {
+    printf("\n\nmostrarVector1");
+      for(int i=0; i <5 ; i++)
+    {
+        printf("\nindice = %d\n valor = %d\n",i,vec[i]);
+    }
+
+    }
+
+    void mostrarVector2(int vec[], int tam)
+    {
+        printf("\n\nmostrarVector2");
+        for(int i=0; i <5 ; i++)
+    {
+        printf("\nindice = %d\n valor = %d\n",i,*(vec+i));
+    }
+    }
+
+
+    void mostrarVector3(int* vec, int tam)
+    {
+         printf("\n\nmostrarVector3");
+      for(int i=0; i <5 ; i++)
+    {
+        printf("\nindice = %d\n valor = %d\n",i,vec[i]);
+    }
+
+    }
+
+     void mostrarVector4(int* vec, int tam)
+    {
+    printf("\n\nmostrarVector4");
+        for(int i=0; i <5 ; i++)
+    {
+        printf("\nindice = %d\n valor = %d\n",i,*(vec+i));
+    }
+
+    }
+
+
+
+
+
