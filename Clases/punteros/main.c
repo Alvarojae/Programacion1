@@ -102,7 +102,7 @@ for(int i=0; i <5 ; i++)
     return 0;
 }
 -------------------------------------------------------------
-*/
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -165,7 +165,72 @@ int main()
 
     }
 
+    ------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+void mostrarCadena(char* cadena);
+int main()
+{
+    char mensaje[] = "hola mundo";
+    mostrarCadena(mensaje);
+    return 0;
+}
+
+void mostrarCadena(char* cadena)
+{
+
+        while(*cadena != '\0')
+        {
+            printf("%c", *cadena);
+            cadena++;
+        }
+}
+--------------------------------------------------------------------
+*/
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct
+{
+   int dia;
+   int mes;
+   int anno;
+
+}eFecha;
+
+typedef struct
+{
+    int legajo;
+    char nombre[20];
+    char sexo;
+    float sueldo;
+    eFecha fechaIngreso;
+
+}eEmpleado;
+
+int main()
+{
+    eEmpleado unEmpleado =
+
+    {1234, "juan",   'm', 3000,{9,12,2018}
+    };
+    eEmpleado otroEmpleado =
+
+    {5678, "alvaro", 'f', 5500,{06,12,1997}
+    };
 
 
 
+    eEmpleado* punteroEmpleado;
+    punteroEmpleado = &unEmpleado;
+    eEmpleado lista[] ={unEmpleado,otroEmpleado};
+
+
+    for(int i=0;i<2;i++)
+    {
+        printf("%s\n",(lista+i)->nombre);
+    }
+
+    return 0;
+}
 
