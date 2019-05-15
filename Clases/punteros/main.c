@@ -210,7 +210,7 @@ typedef struct
 
 int main()
 {
-    eEmpleado unEmpleado =
+    eEmpleado unEmpleado[2] =
 
     {1234, "juan",   'm', 3000,{9,12,2018}
     };
