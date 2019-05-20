@@ -31,8 +31,9 @@ int main()
      printf("ingrese sueldo = ");
     scanf ("%f", &pemp->sueldo);
 
-    printf("leg: %d nombre: %s sexo: %c  sueldo: %.2f\n",pemp->legajo,pemp->nombre,pemp->sexo,pemp->sueldo);
+    printf("legajo: %d nombre: %s sexo: %c  sueldo: %.2f\n",pemp->legajo,pemp->nombre,pemp->sexo,pemp->sueldo);
 
+    printf("%d", sizeof(eEmpleado)); // -> muestra la cantidad de bits de sizeof de eEmpleado
 
     return 0;
 }
