@@ -1,0 +1,52 @@
+archivos 
+--------
+
+-Binario (Asociado a estructuras / interpretacion binaria)
+-texto   (Interpretacion plana "texto plano")
+	parser
+
+FILE *fopen(char *nombre,char *modo);                    ->  abre el archivo
+
+int fclose(FILE *fp);                                    ->  cierra el archivo
+
+int fcloseall(void);                                     ->  cierra todos los archivos
+
+int fread(void *memoria,int num,int cont,FILE *fp);      ->  lee archivos
+
+int fwrite(void *memoria,int num,int cont,FILE *fp);     ->  escribe archivos
+
+int feof(FILE *f);                                       ->  end of file 
+                          
+int ferror(FILE *fp);                                    ->
+ 
+void rewind(FILE *fp);                                   -> vuelve al comienzo del archivo
+ 
+int fseek(FILE *fp,long num,int origen);                 ->
+
+long ftell(FILE *f);                                     -> me permite la cantidad de bytes que hay del cursor hasta el final 
+
+int getc(FILE *fp);                                      ->
+
+int putc(int ch,FILE *fp);                               ->
+
+char* fgets(char *str,int n,FILE *fp);                   ->
+
+int fputs(const char *str,FILE *fp);                     ->
+
+int fscanf(FILE *fp,const char *formato[,dirección,...]);->
+
+int fprintf(FILE *fp,const char *formato[,argumento,..]);->                                                       -> 
+                    
+                                                                             
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                    
+                                                                               
+ 
