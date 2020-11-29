@@ -1,0 +1,339 @@
+/*
+ * informes.c
+ *
+ *  Created on: 10 Oct 2020
+ *      Author: Alvaro
+ */
+#include "informes.h"
+/**
+ * \brief cuenta la cantidad de publicaciones inactivas
+ * \param Publicacion* list, Es el puntero al array de publicaciones
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+int ContadorDeInactivas(Publicacion* list[],int len)
+{
+	int retorno = -1;
+	int contador = 0 ;
+	if(list != NULL && len > 0)
+	{
+		for(int i=0;i<len;i++)
+		{
+			if(list[i] != 0 && list[i]->estado == 0)
+			{
+				contador++;
+			}
+		}
+		retorno = contador;
+	}
+	return retorno;
+}
+
+/**
+ * \brief Cuenta los clientes con mas avisos
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub)
+{
+	int retorno =-1;
+	int bandera=0;
+	int contador=0;
+	int max;
+	int i;
+	int auxIndice;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+	{
+		for(i=0; i < len ;i++)
+		{
+			if (list[i]!=0)
+			{
+				if(contarClientesYAvisosPorId(list, len, listPub, lenPub, i)!=-1)
+				{
+					contador = contarClientesYAvisosPorId(list, len, listPub, lenPub, i);
+					if(bandera==0)
+					{
+						max = contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+					else if(contador > max)
+					{
+						max=contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+				}
+				bandera++;
+			}
+		}
+		cliente_mostrar(list, auxIndice);
+		printf("Cantidad de avisos =%d\n",max);
+	}
+return retorno;
+}
+
+/**
+ * \brief Cuenta las veces de avisos repetidos con el mismo id de cliente
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i)
+{
+	int retorno = -1;
+	int j;
+	int contador=0;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+		{
+			for(j=0; j < lenPub ;j++)
+			{
+				if(list[i]->idCliente==listPub[j].idCliente && listPub[j].isEmpty==0)
+				{
+					//publicacion_mostrar(listPub, j);
+					contador++;
+				}
+			}
+			retorno=contador;
+		}
+
+	return retorno;
+}
+
+/**
+ * \brief muestra el rubro con mas cantidad y la cantidad de veces
+ * \param Publicacion* list, Es el puntero al array de publicaciones
+ * \param int lenPub, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int contarRubroConMasAvisos(Publicacion* listPub,int lenPub)
+{
+	int retorno=-1;
+	int bandera=0;
+	int contador=0;
+	int max;
+	int i;
+	int auxIndice;
+
+	if(listPub != NULL && lenPub> 0)
+	{
+		for(i=0; i < lenPub ;i++)
+		{
+			if (listPub[i].isEmpty==0)
+			{
+				if(contarRubrosPorId(listPub, lenPub, i)!=-1)
+				{
+					contador=contarRubrosPorId(listPub, lenPub, i);
+					if(bandera==0)
+					{
+						max = contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+					else if(contador > max)
+					{
+						max=contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+				}
+			bandera++;
+			}
+		}
+		printf("El Rubro es =%d\n",listPub[auxIndice].NumeroDeRubro);
+		printf("La cantidad de veces que aparece en publicaciones es =%d\n",max);
+	}
+return retorno;
+}
+
+
+/**
+ * \brief Cuenta las veces de rubros repetidos con el mismo id de cliente
+ * \param Publicacion* list, Es el puntero al array de publicaciones
+ * \param Pint i, es el indice donde usa como pilar para comparar
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+int contarRubrosPorId(Publicacion* listPub,int lenPub, int i)
+{
+	int retorno = -1;
+	int j;
+	int contador=0;
+	if( listPub != NULL && lenPub> 0)
+	{
+		for(j=0; j < lenPub ;j++)
+		{
+			if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j].isEmpty==0 )
+			{
+				contador++;
+			}
+		}
+			retorno=contador;
+	}
+
+	return retorno;
+}
+
+
+/**
+ * \brief Cuenta las veces de avisos pausados o activos y las muestra
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \param int estado, estado 1 = activos   - estado 0 = pausado
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub,int lenPub,int estado)
+{
+	int retorno =-1;
+	int bandera=0;
+	int contador=0;
+	int max;
+	int i;
+	int auxIndice;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+	{
+		for(i=0; i < len ;i++)
+		{
+			if (list[i]!=0)
+			{
+				if(contarClientesYAvisosPorIdActivosOPausado(list, len, listPub, lenPub, i,estado)!=-1)
+				{
+					contador = contarClientesYAvisosPorIdActivosOPausado(list, len, listPub, lenPub, i,estado);
+					if(bandera==0)
+					{
+						max = contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+					else if(contador > max)
+					{
+						max=contador;
+						auxIndice=i;
+						retorno = 1;
+					}
+				}
+			bandera++;
+			}
+		}
+		cliente_mostrar(list, auxIndice);
+		if(estado == 1)
+		{
+			printf("Cantidad de avisos activos =%d\n",max);
+		}else
+		{
+			printf("Cantidad de avisos pausados =%d\n",max);
+		}
+	}
+	return retorno;
+}
+
+
+
+
+
+/**
+ * \brief Cuenta las veces de avisos pausados o activos
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \param int estado, estado 1 = activos   - estado 0 = pausado
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i ,int estado)
+{
+	int retorno = -1;
+	int j;
+	int contador=0;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+		{
+			for(j=0; j < lenPub ;j++)
+			{
+				if(list[i]->idCliente==listPub[j].idCliente && listPub[j].isEmpty==0 && listPub[j].estado == estado )
+				{
+					//publicacion_mostrar(listPub, j);
+					contador++;
+				}
+			}
+			retorno=contador;
+		}
+	return retorno;
+}
+
+
+
+//**********************************************
+
+/*
+ * \brief modifica una publicacion
+ * \param Publicacion* list, Es el puntero al array de clientes
+ * \param int len, se pasa el indice que el usuario quiere mostrar
+ * \return (-1) Error / (0) Ok
+
+int publicacion_modificar(Publicacion* list,int len)
+{
+	int retorno = -1;
+	Publicacion buffer;
+	int aux;
+	int auxId;
+	char modificar;
+
+	if(list != NULL && len >= 0 )
+	{
+		publicacion_print(list, len);
+		if(	utn_getInt("\nIngrese el id de la publicacion que desea cambiar = ", "\n", &aux, 2, 9999999, 0)==0)
+		{
+			auxId=publicacion_findId(list, len, aux);
+			if(list[auxId].isEmpty==0)
+			{
+				publicacion_mostrar(list,auxId);
+				buffer = list[auxId];
+				utn_getChar("\ndesea cambiar esta publicidad = (s - n)?  " , "Ingrese s - n" , &modificar, 3);
+				if (modificar=='s')
+				{
+					if(utn_getInt("\nIngrese el numero de rubro = ", "ingrese un numero correcto \n", &buffer.NumeroDeRubro, 2, 9999, 1) ==0 &&
+					   utn_getAviso("\nIngrese texto de aviso = ","\nError ingrese un texto mas corto",buffer.TextoDeAviso,2,LONG_NOMBRE) == 0)
+					{
+						list[auxId] = buffer ;
+					}
+				}
+				retorno = 1;
+			}
+		}
+	}
+	return retorno;
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+

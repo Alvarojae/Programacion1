@@ -1,0 +1,20 @@
+id Ventas,id cliente,Cantidad de afiches ,Nombre del archivo,zona,estado
+1,1,500,pocoloco,1,1
+2,1,654,baba,0,0
+3,3,21,ada,2,0
+4,3,25,cafa,2,0
+5,5,65,dera,1,0
+7,4,54,ceda,1,1
+8,2,12,case,0,1
+9,1,32,case,2,1
+10,2,45,bead,2,0
+11,2,65,lopo,1,0
+12,3,89,poca,0,1
+13,4,14,toro,0,0
+14,5,25,ciolo,2,1
+15,5,36,pepo,2,0
+16,2,14,asd,1,1
+17,1,56,zxc,0,1
+18,3,48,polo,0,0
+19,5,95,vasa,1,0
+20,5,10,retas,1,0

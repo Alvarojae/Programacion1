@@ -1,0 +1,45 @@
+#ifndef publicacion_H_
+#define publicacion_H_
+
+#include "cliente.h"
+
+#define TRUE 1
+#define FALSE 0
+#define LONG_NOMBRE 50
+#define QTY_ALUMNOS 5
+#define MIN_LEGAJO 50
+#define MAX_LEGAJO 9999
+#define MAX_PUBLICACIONES 1000
+
+
+typedef struct
+{ 
+	char TextoDeAviso[51];
+	int NumeroDeRubro;
+	int idCliente;
+	int idPublicacion;
+	int estado;
+	int isEmpty;
+
+}Publicacion;
+
+int publicacion_initList(Publicacion* list, int len);
+int publicacion_buscarLibre(Publicacion* arrayAlumnos, int len);
+int publicacion_add(Publicacion* list, int lenContra, Cliente* listPant[], int lenPant);
+int publicacion_print(Publicacion* list, int len);
+int publicacion_mostrar(Publicacion* list,int len);
+int publicacion_findId(Publicacion* list,int len,int id);
+int publicacion_mostrarPanYCon(Publicacion* list,int lenCon,char* cuit,Cliente* listPant,int lenPant);
+int mostrarPublicacionesPausadasOActivas(Publicacion* list,int len,int estado);
+int pausarPublicacion (Publicacion* list,int len,Cliente* listCli[], int lenCli);
+int reanudarPublicacion (Publicacion* list,int len,Cliente* listCli[], int lenCli);
+int publicacion_altaForzada(Publicacion * pArray, int limite ,int idCliente,int rubro,  char * aviso);
+int publicacion_buscarUsuarioDeAlta(Publicacion* list, int len);
+int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+int publicacion_imprimirClientes(Cliente* list[], int len,Publicacion* listPub,int lenPub);
+int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub,int auxId);
+int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub,int auxId);
+
+//int publicacion_sortByRubro(Publicacion* list, int len, int order);
+
+#endif

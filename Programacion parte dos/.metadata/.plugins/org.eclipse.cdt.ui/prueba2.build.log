@@ -1,0 +1,9 @@
+22:10:50 **** Incremental Build of configuration Debug for project prueba2 ****
+make all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+PATH=[C:/Program Files/AdoptOpenJDK/jdk-11.0.8.10-hotspot/bin/client;C:/Program Files/AdoptOpenJDK/jdk-11.0.8.10-hotspot/bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files\AdoptOpenJDK\jdk-11.0.8.10-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\Alvaro\AppData\Local\Microsoft\WindowsApps;C:\Users\Alvaro\AppData\Local\GitHubDesktop\bin;C:\Users\Alvaro\.dotnet\tools;C:\Users\Alvaro\eclipse\cpp-2020-063\eclipse]
+
+22:10:50 Build Failed. 1 errors, 0 warnings. (took 62ms)
+

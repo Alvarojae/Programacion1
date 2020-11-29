@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item key="OUTSIDE_LOCATION" value="C:\Users\Alvaro\Desktop\Programacion 1"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Alvaro\Desktop\AMB_cliente_dinamico_en_clase"/>
+			<item value="C:\Users\Alvaro\Desktop\punteros"/>
+			<item value="C:\Users\Alvaro\Desktop\Trabajos-viejos\TP3_Laboratorio_1"/>
+			<item value="C:\Users\Alvaro\Desktop\Trabajos-viejos\TP3_Laboratorio_1\Win_64"/>
+			<item value="C:\Users\Alvaro\Desktop\tp3\tp3_windows"/>
+			<item value="C:\Users\Alvaro\Desktop\tp3\TP3_Laboratorio_1"/>
+			<item value="C:\Users\Alvaro\Desktop\aaaaaaaa"/>
+			<item value="C:\Users\Alvaro\Desktop\prueba 12\.settings"/>
+			<item value="C:\Users\Alvaro\Desktop\Martes_Examen"/>
+			<item value="C:\Users\Alvaro\Desktop\Prueba martes"/>
+			<item value="C:\Users\Alvaro\Desktop\prueba 12"/>
+			<item value="C:\Users\Alvaro\Desktop\tp_laboratorio_1\TP2_Laboratorio_1"/>
+			<item value="C:\Users\Alvaro\Desktop\Tp2"/>
+			<item value="C:\Users\Alvaro\Desktop\clase 12"/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

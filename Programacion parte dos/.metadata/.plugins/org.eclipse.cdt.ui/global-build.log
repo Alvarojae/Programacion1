@@ -1,0 +1,1143 @@
+20:25:10 **** Rebuild of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:281:5: error: conflicting types for 'reanudarPublicacion'
+  281 | int reanudarPublicacion (Publicacion* list,int len,Cliente * listCli[], int lenCli)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:34:5: note: previous declaration of 'reanudarPublicacion' was here
+   34 | int reanudarPublicacion (Publicacion* list[],int len,Cliente* listCli[], int lenCli);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'reanudarPublicacion':
+..\src\publicacion.c:292:33: warning: passing argument 1 of 'publicacion_findId' from incompatible pointer type [-Wincompatible-pointer-types]
+  292 |    auxIndice=publicacion_findId(list, len, auxId);
+      |                                 ^~~~
+      |                                 |
+      |                                 Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:182:37: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  182 | int publicacion_findId(Publicacion* list[],int len,int id)
+      |                        ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c:298:25: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  298 |     publicacion_mostrar(list, auxIndice);
+      |                         ^~~~
+      |                         |
+      |                         Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:361:5: error: conflicting types for 'publicacion_buscarUsuarioDeAlta'
+  361 | int publicacion_buscarUsuarioDeAlta(Publicacion* list, int len)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:36:5: note: previous declaration of 'publicacion_buscarUsuarioDeAlta' was here
+   36 | int publicacion_buscarUsuarioDeAlta(Publicacion* list[], int len);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'publicacion_buscarUsuarioDeAlta':
+..\src\publicacion.c:369:16: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  369 |     if (list[i]!=0)
+      |         ~~~~~~~^~
+      |             |
+      |             Publicacion {aka struct <anonymous>}
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:443:5: error: conflicting types for 'mostrarUsuariosPorPublicacionesPorId'
+  443 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub,int auxId)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:5: note: previous declaration of 'mostrarUsuariosPorPublicacionesPorId' was here
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'mostrarUsuariosPorPublicacionesPorId':
+..\src\publicacion.c:449:16: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  449 |   if(listPub[i]!= 0 && list[auxId]->idCliente == listPub[i].idCliente && list[auxId] !=0)
+      |      ~~~~~~~~~~^~
+      |             |
+      |             Publicacion {aka struct <anonymous>}
+..\src\publicacion.c:451:24: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  451 |    publicacion_mostrar(listPub, i);
+      |                        ^~~~~~~
+      |                        |
+      |                        Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+20:25:27 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:281:5: error: conflicting types for 'reanudarPublicacion'
+  281 | int reanudarPublicacion (Publicacion* list,int len,Cliente * listCli[], int lenCli)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:34:5: note: previous declaration of 'reanudarPublicacion' was here
+   34 | int reanudarPublicacion (Publicacion* list[],int len,Cliente* listCli[], int lenCli);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'reanudarPublicacion':
+..\src\publicacion.c:292:33: warning: passing argument 1 of 'publicacion_findId' from incompatible pointer type [-Wincompatible-pointer-types]
+  292 |    auxIndice=publicacion_findId(list, len, auxId);
+      |                                 ^~~~
+      |                                 |
+      |                                 Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:182:37: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  182 | int publicacion_findId(Publicacion* list[],int len,int id)
+      |                        ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c:298:25: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  298 |     publicacion_mostrar(list, auxIndice);
+      |                         ^~~~
+      |                         |
+      |                         Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:361:5: error: conflicting types for 'publicacion_buscarUsuarioDeAlta'
+  361 | int publicacion_buscarUsuarioDeAlta(Publicacion* list, int len)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:36:5: note: previous declaration of 'publicacion_buscarUsuarioDeAlta' was here
+   36 | int publicacion_buscarUsuarioDeAlta(Publicacion* list[], int len);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'publicacion_buscarUsuarioDeAlta':
+..\src\publicacion.c:369:16: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  369 |     if (list[i]!=0)
+      |         ~~~~~~~^~
+      |             |
+      |             Publicacion {aka struct <anonymous>}
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:443:5: error: conflicting types for 'mostrarUsuariosPorPublicacionesPorId'
+  443 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub,int auxId)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:5: note: previous declaration of 'mostrarUsuariosPorPublicacionesPorId' was here
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'mostrarUsuariosPorPublicacionesPorId':
+..\src\publicacion.c:449:16: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  449 |   if(listPub[i]!= 0 && list[auxId]->idCliente == listPub[i].idCliente && list[auxId] !=0)
+      |      ~~~~~~~~~~^~
+      |             |
+      |             Publicacion {aka struct <anonymous>}
+..\src\publicacion.c:451:24: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  451 |    publicacion_mostrar(listPub, i);
+      |                        ^~~~~~~
+      |                        |
+      |                        Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+20:25:45 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:281:5: error: conflicting types for 'reanudarPublicacion'
+  281 | int reanudarPublicacion (Publicacion* list,int len,Cliente * listCli[], int lenCli)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:34:5: note: previous declaration of 'reanudarPublicacion' was here
+   34 | int reanudarPublicacion (Publicacion* list[],int len,Cliente* listCli[], int lenCli);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'reanudarPublicacion':
+..\src\publicacion.c:292:33: warning: passing argument 1 of 'publicacion_findId' from incompatible pointer type [-Wincompatible-pointer-types]
+  292 |    auxIndice=publicacion_findId(list, len, auxId);
+      |                                 ^~~~
+      |                                 |
+      |                                 Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:182:37: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  182 | int publicacion_findId(Publicacion* list[],int len,int id)
+      |                        ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c:298:25: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  298 |     publicacion_mostrar(list, auxIndice);
+      |                         ^~~~
+      |                         |
+      |                         Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:361:5: error: conflicting types for 'publicacion_buscarUsuarioDeAlta'
+  361 | int publicacion_buscarUsuarioDeAlta(Publicacion* list, int len)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:36:5: note: previous declaration of 'publicacion_buscarUsuarioDeAlta' was here
+   36 | int publicacion_buscarUsuarioDeAlta(Publicacion* list[], int len);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'publicacion_buscarUsuarioDeAlta':
+..\src\publicacion.c:369:16: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  369 |     if (list[i]!=0)
+      |         ~~~~~~~^~
+      |             |
+      |             Publicacion {aka struct <anonymous>}
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+20:25:54 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\utn.o" "..\\src\\utn.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:107:6: warning: implicit declaration of function 'mostrarpArrayPublicacionesPausadasOActivas'; did you mean 'mostrarPublicacionesPausadasOActivas'? [-Wimplicit-function-declaration]
+  107 |      mostrarpArrayPublicacionesPausadasOActivas(pArrayPublicaciones, MAX_PUBLICACIONES, 1);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      mostrarPublicacionesPausadasOActivas
+..\src\Main.c:117:29: warning: passing argument 1 of 'ContadorDeInactivas' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |      if(ContadorDeInactivas(pArrayPublicaciones, MAX_PUBLICACIONES)!=0)
+      |                             ^~~~~~~~~~~~~~~~~~~
+      |                             |
+      |                             Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:20:38: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |                         ~~~~~~~~~~~~~^~~~
+..\src\Main.c:142:72: warning: passing argument 3 of 'contadorClienteConMasAvisos' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |        contadorClienteConMasAvisos(pArrayClientes, MAX_SRUCT_CLIENTES, pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                                        |
+      |                                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:21:71: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   21 | int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub);
+      |                                                          ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:148:30: warning: passing argument 1 of 'ContadorDeInactivas' from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |       if(ContadorDeInactivas(pArrayPublicaciones, MAX_PUBLICACIONES)!=-1)
+      |                              ^~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:20:38: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |                         ~~~~~~~~~~~~~^~~~
+..\src\Main.c:150:78: warning: passing argument 1 of 'ContadorDeInactivas' from incompatible pointer type [-Wincompatible-pointer-types]
+  150 |        printf("La cantidad de avisos pausados son %d \n",ContadorDeInactivas(pArrayPublicaciones, MAX_PUBLICACIONES));
+      |                                                                              ^~~~~~~~~~~~~~~~~~~
+      |                                                                              |
+      |                                                                              Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:20:38: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |                         ~~~~~~~~~~~~~^~~~
+..\src\Main.c:160:32: warning: passing argument 1 of 'contarRubroConMasAvisos' from incompatible pointer type [-Wincompatible-pointer-types]
+  160 |        contarRubroConMasAvisos(pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:22:42: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   22 | int contarRubroConMasAvisos(Publicacion* listPub,int lenPub);
+      |                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:168:88: warning: passing argument 3 of 'contadorClienteConMasAvisosActivosOPausados' from incompatible pointer type [-Wincompatible-pointer-types]
+  168 |        contadorClienteConMasAvisosActivosOPausados(pArrayClientes, MAX_SRUCT_CLIENTES, pArrayPublicaciones, MAX_PUBLICACIONES,1);
+      |                                                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                                                        |
+      |                                                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:26:87: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   26 | int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub,int lenPub,int estado);
+      |                                                                          ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:175:30: warning: passing argument 1 of 'ContadorDeInactivas' from incompatible pointer type [-Wincompatible-pointer-types]
+  175 |          ContadorDeInactivas(pArrayPublicaciones, MAX_PUBLICACIONES)!=0)
+      |                              ^~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:20:38: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |                         ~~~~~~~~~~~~~^~~~
+..\src\Main.c:177:88: warning: passing argument 3 of 'contadorClienteConMasAvisosActivosOPausados' from incompatible pointer type [-Wincompatible-pointer-types]
+  177 |        contadorClienteConMasAvisosActivosOPausados(pArrayClientes, MAX_SRUCT_CLIENTES, pArrayPublicaciones, MAX_PUBLICACIONES,0);
+      |                                                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                                                        |
+      |                                                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:26:87: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   26 | int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub,int lenPub,int estado);
+      |                                                                          ~~~~~~~~~~~~~^~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: At top level:
+..\src\publicacion.c:281:5: error: conflicting types for 'reanudarPublicacion'
+  281 | int reanudarPublicacion (Publicacion* list,int len,Cliente * listCli[], int lenCli)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:34:5: note: previous declaration of 'reanudarPublicacion' was here
+   34 | int reanudarPublicacion (Publicacion* list[],int len,Cliente* listCli[], int lenCli);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c: In function 'reanudarPublicacion':
+..\src\publicacion.c:292:33: warning: passing argument 1 of 'publicacion_findId' from incompatible pointer type [-Wincompatible-pointer-types]
+  292 |    auxIndice=publicacion_findId(list, len, auxId);
+      |                                 ^~~~
+      |                                 |
+      |                                 Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:182:37: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  182 | int publicacion_findId(Publicacion* list[],int len,int id)
+      |                        ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c:298:25: warning: passing argument 1 of 'publicacion_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  298 |     publicacion_mostrar(list, auxIndice);
+      |                         ^~~~
+      |                         |
+      |                         Publicacion * {aka struct <anonymous> *}
+..\src\publicacion.c:155:38: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+  155 | int publicacion_mostrar(Publicacion* list[],int indice)
+      |                         ~~~~~~~~~~~~~^~~~~~
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+20:26:12 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: In function 'reanudarPublicacion':
+..\src\publicacion.c:293:29: error: '*(list + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  293 |    idCliente=list[auxIndice].idCliente;
+      |                             ^
+      |                             ->
+..\src\publicacion.c:295:73: error: '*(list + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  295 |    if(cliente_findId(listCli, lenCli, idCliente )!=-1 && list[auxIndice].estado==0)
+      |                                                                         ^
+      |                                                                         ->
+..\src\publicacion.c:300:45: error: '*(list + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  300 |     if (auxModificar=='s' && list[auxIndice].estado!=1)
+      |                                             ^
+      |                                             ->
+..\src\publicacion.c:302:21: error: '*(list + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  302 |      list[auxIndice].estado=1;
+      |                     ^
+      |                     ->
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+20:26:37 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c:15:5: error: conflicting types for 'ContadorDeInactivas'
+   15 | int ContadorDeInactivas(Publicacion* list[],int len)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:20:5: note: previous declaration of 'ContadorDeInactivas' was here
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:62: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j].idCliente && listPub[j]!=0)
+      |                                                    ~~~~~~~~~~^~
+      |                                                           |
+      |                                                           Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:18: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i]!=0)
+      |        ~~~~~~~~~~^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+..\src\informes.c: At top level:
+..\src\informes.c:261:5: error: conflicting types for 'contarClientesYAvisosPorIdActivosOPausado'
+  261 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i ,int estado)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:27:5: note: previous declaration of 'contarClientesYAvisosPorIdActivosOPausado' was here
+   27 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i ,int estado);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20:26:41 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c:15:5: error: conflicting types for 'ContadorDeInactivas'
+   15 | int ContadorDeInactivas(Publicacion* list[],int len)
+      |     ^~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:20:5: note: previous declaration of 'ContadorDeInactivas' was here
+   20 | int ContadorDeInactivas(Publicacion* list,int len);
+      |     ^~~~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:62: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j].idCliente && listPub[j]!=0)
+      |                                                    ~~~~~~~~~~^~
+      |                                                           |
+      |                                                           Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:18: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i]!=0)
+      |        ~~~~~~~~~~^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+..\src\informes.c: At top level:
+..\src\informes.c:261:5: error: conflicting types for 'contarClientesYAvisosPorIdActivosOPausado'
+  261 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i ,int estado)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:27:5: note: previous declaration of 'contarClientesYAvisosPorIdActivosOPausado' was here
+   27 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i ,int estado);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20:27:10 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:107:6: warning: implicit declaration of function 'mostrarpArrayPublicacionesPausadasOActivas'; did you mean 'mostrarPublicacionesPausadasOActivas'? [-Wimplicit-function-declaration]
+  107 |      mostrarpArrayPublicacionesPausadasOActivas(pArrayPublicaciones, MAX_PUBLICACIONES, 1);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      mostrarPublicacionesPausadasOActivas
+..\src\Main.c:142:72: warning: passing argument 3 of 'contadorClienteConMasAvisos' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |        contadorClienteConMasAvisos(pArrayClientes, MAX_SRUCT_CLIENTES, pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                                        |
+      |                                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:21:71: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   21 | int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub);
+      |                                                          ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:160:32: warning: passing argument 1 of 'contarRubroConMasAvisos' from incompatible pointer type [-Wincompatible-pointer-types]
+  160 |        contarRubroConMasAvisos(pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                ^~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:22:42: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   22 | int contarRubroConMasAvisos(Publicacion* listPub,int lenPub);
+      |                             ~~~~~~~~~~~~~^~~~~~~
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_add':
+..\src\publicacion.c:105:26: error: incompatible types when assigning to type 'Publicacion *' {aka 'struct <anonymous> *'} from type 'Publicacion' {aka 'struct <anonymous>'}
+  105 |     list[espacioLibre] = buffer;
+      |                          ^~~~~~
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+20:27:19 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:62: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j].idCliente && listPub[j]!=0)
+      |                                                    ~~~~~~~~~~^~
+      |                                                           |
+      |                                                           Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:18: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i]!=0)
+      |        ~~~~~~~~~~^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+..\src\informes.c: At top level:
+..\src\informes.c:201:5: error: conflicting types for 'contadorClienteConMasAvisosActivosOPausados'
+  201 | int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub,int lenPub,int estado)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:26:5: note: previous declaration of 'contadorClienteConMasAvisosActivosOPausados' was here
+   26 | int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int estado);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contadorClienteConMasAvisosActivosOPausados':
+..\src\informes.c:215:61: error: passing argument 3 of 'contarClientesYAvisosPorIdActivosOPausado' from incompatible pointer type [-Wincompatible-pointer-types]
+  215 |     if(contarClientesYAvisosPorIdActivosOPausado(list, len, listPub, lenPub, i,estado)!=-1)
+      |                                                             ^~~~~~~
+      |                                                             |
+      |                                                             Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:27:85: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   27 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i ,int estado);
+      |                                                                        ~~~~~~~~~~~~~^~~~~~~~~
+..\src\informes.c:217:70: error: passing argument 3 of 'contarClientesYAvisosPorIdActivosOPausado' from incompatible pointer type [-Wincompatible-pointer-types]
+  217 |      contador = contarClientesYAvisosPorIdActivosOPausado(list, len, listPub, lenPub, i,estado);
+      |                                                                      ^~~~~~~
+      |                                                                      |
+      |                                                                      Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:27:85: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   27 | int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i ,int estado);
+      |                                                                        ~~~~~~~~~~~~~^~~~~~~~~
+20:27:35 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:62: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j].idCliente && listPub[j]!=0)
+      |                                                    ~~~~~~~~~~^~
+      |                                                           |
+      |                                                           Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:18: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i]!=0)
+      |        ~~~~~~~~~~^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+20:27:45 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:18: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i]!=0)
+      |        ~~~~~~~~~~^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+20:28:07 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'cliente_remove':
+..\src\publicacion.c:406:52: warning: passing argument 3 of 'mostrarUsuariosPorPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  406 |    mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                                    ^~~~~~~
+      |                                                    |
+      |                                                    Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:40:80: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   40 | int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                                   ~~~~~~~~~~~~~^~~~~~~~~
+..\src\publicacion.c:416:43: warning: passing argument 3 of 'eliminarPublicacionesPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  416 |     eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\publicacion.c:7:
+..\src\publicacion.h:39:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   39 | int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:133:19: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  133 |    if (listPub[i] != 0)
+      |        ~~~~~~~~~~ ^~
+      |               |
+      |               Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+20:28:29 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+..\src\informes.c: At top level:
+..\src\informes.c:120:5: error: conflicting types for 'contarRubroConMasAvisos'
+  120 | int contarRubroConMasAvisos(Publicacion* listPub[],int lenPub)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:22:5: note: previous declaration of 'contarRubroConMasAvisos' was here
+   22 | int contarRubroConMasAvisos(Publicacion* listPub,int lenPub);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:135:26: error: passing argument 1 of 'contarRubrosPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  135 |     if(contarRubrosPorId(listPub, lenPub, i)!=-1)
+      |                          ^~~~~~~
+      |                          |
+      |                          Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:24:36: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   24 | int contarRubrosPorId(Publicacion* listPub,int lenPub, int i);
+      |                       ~~~~~~~~~~~~~^~~~~~~
+..\src\informes.c:137:33: error: passing argument 1 of 'contarRubrosPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+  137 |      contador=contarRubrosPorId(listPub, lenPub, i);
+      |                                 ^~~~~~~
+      |                                 |
+      |                                 Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:24:36: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   24 | int contarRubrosPorId(Publicacion* listPub,int lenPub, int i);
+      |                       ~~~~~~~~~~~~~^~~~~~~
+..\src\informes.c:154:48: error: '*(listPub + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  154 |   printf("El Rubro es =%d\n",listPub[auxIndice].NumeroDeRubro);
+      |                                                ^
+      |                                                ->
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+20:28:39 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubroConMasAvisos':
+..\src\informes.c:154:48: error: '*(listPub + (sizetype)((unsigned int)auxIndice * 4))' is a pointer; did you mean to use '->'?
+  154 |   printf("El Rubro es =%d\n",listPub[auxIndice].NumeroDeRubro);
+      |                                                ^
+      |                                                ->
+..\src\informes.c: At top level:
+..\src\informes.c:169:5: error: conflicting types for 'contarRubrosPorId'
+  169 | int contarRubrosPorId(Publicacion* listPub,int lenPub, int i)
+      |     ^~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:24:5: note: previous declaration of 'contarRubrosPorId' was here
+   24 | int contarRubrosPorId(Publicacion* listPub[],int lenPub, int i);
+      |     ^~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:71: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                                             ~~~~~~~~~~^~
+      |                                                                    |
+      |                                                                    Publicacion {aka struct <anonymous>}
+20:28:58 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+..\src\informes.c: In function 'contarRubrosPorId':
+..\src\informes.c:178:17: error: '*(listPub + (sizetype)((unsigned int)i * 4))' is a pointer; did you mean to use '->'?
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                 ^
+      |                 ->
+..\src\informes.c:178:43: error: '*(listPub + (sizetype)((unsigned int)j * 4))' is a pointer; did you mean to use '->'?
+  178 |    if(listPub[i].NumeroDeRubro==listPub[j].NumeroDeRubro && listPub[j]!=0 )
+      |                                           ^
+      |                                           ->
+20:29:06 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c: In function 'contarClientesYAvisosPorId':
+..\src\informes.c:100:38: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                      ^~
+..\src\informes.c:100:63: error: invalid operands to binary != (have 'Publicacion' {aka 'struct <anonymous>'} and 'int')
+  100 |     if(list[i]->idCliente==listPub[j]->idCliente && listPub[j]!=0)
+      |                                                     ~~~~~~~~~~^~
+      |                                                            |
+      |                                                            Publicacion {aka struct <anonymous>}
+20:29:17 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:107:6: warning: implicit declaration of function 'mostrarpArrayPublicacionesPausadasOActivas'; did you mean 'mostrarPublicacionesPausadasOActivas'? [-Wimplicit-function-declaration]
+  107 |      mostrarpArrayPublicacionesPausadasOActivas(pArrayPublicaciones, MAX_PUBLICACIONES, 1);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      mostrarPublicacionesPausadasOActivas
+..\src\Main.c:142:72: warning: passing argument 3 of 'contadorClienteConMasAvisos' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |        contadorClienteConMasAvisos(pArrayClientes, MAX_SRUCT_CLIENTES, pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                                        |
+      |                                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:9:
+..\src\informes.h:21:71: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   21 | int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub);
+      |                                                          ~~~~~~~~~~~~~^~~~~~~
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c:91:5: error: conflicting types for 'contarClientesYAvisosPorId'
+   91 | int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:23:5: note: previous declaration of 'contarClientesYAvisosPorId' was here
+   23 | int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+20:29:26 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+..\src\informes.c:43:5: error: conflicting types for 'contadorClienteConMasAvisos'
+   43 | int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ..\src\informes.c:7:
+..\src\informes.h:21:5: note: previous declaration of 'contadorClienteConMasAvisos' was here
+   21 | int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub[],int lenPub);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\informes.c: In function 'contadorClienteConMasAvisos':
+..\src\informes.c:57:46: error: passing argument 3 of 'contarClientesYAvisosPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+   57 |     if(contarClientesYAvisosPorId(list, len, listPub, lenPub, i)!=-1)
+      |                                              ^~~~~~~
+      |                                              |
+      |                                              Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:23:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   23 | int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+..\src\informes.c:59:55: error: passing argument 3 of 'contarClientesYAvisosPorId' from incompatible pointer type [-Wincompatible-pointer-types]
+   59 |      contador = contarClientesYAvisosPorId(list, len, listPub, lenPub, i);
+      |                                                       ^~~~~~~
+      |                                                       |
+      |                                                       Publicacion * {aka struct <anonymous> *}
+In file included from ..\src\informes.c:7:
+..\src\informes.h:23:70: note: expected 'Publicacion **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion *' {aka 'struct <anonymous> *'}
+   23 | int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub, int i);
+      |                                                         ~~~~~~~~~~~~~^~~~~~~~~
+20:29:33 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:107:6: warning: implicit declaration of function 'mostrarpArrayPublicacionesPausadasOActivas'; did you mean 'mostrarPublicacionesPausadasOActivas'? [-Wimplicit-function-declaration]
+  107 |      mostrarpArrayPublicacionesPausadasOActivas(pArrayPublicaciones, MAX_PUBLICACIONES, 1);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      mostrarPublicacionesPausadasOActivas
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:30:23 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+..\src\Main.c:120:6: warning: implicit declaration of function 'mostrarpArrayPublicacionesPausadasOActivas'; did you mean 'mostrarPublicacionesPausadasOActivas'? [-Wimplicit-function-declaration]
+  120 |      mostrarpArrayPublicacionesPausadasOActivas(pArrayPublicaciones, MAX_PUBLICACIONES, 0);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |      mostrarPublicacionesPausadasOActivas
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:30:29 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+..\src\Main.c: In function 'main':
+..\src\Main.c:86:56: warning: passing argument 3 of 'cliente_remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   86 |      cliente_remove(pArrayClientes, MAX_SRUCT_CLIENTES,pArrayPublicaciones, MAX_PUBLICACIONES);
+      |                                                        ^~~~~~~~~~~~~~~~~~~
+      |                                                        |
+      |                                                        Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\Main.c:7:
+..\src\publicacion.h:37:58: note: expected 'Publicacion *' {aka 'struct <anonymous> *'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   37 | int cliente_remove(Cliente* list[], int len,Publicacion *listPub,int lenPub);
+      |                                             ~~~~~~~~~~~~~^~~~~~~
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:30:48 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:31:02 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:31:03 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:33:51 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:41:08 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:43:56 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:46:38 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:46:42 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:47:00 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:47:07 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:47:44 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:47:46 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:48:03 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:48:27 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:48:58 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:49:10 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:50:19 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_altaForzada':
+..\src\publicacion.c:45:5: error: 'pPublicacionesidPublicacion' undeclared (first use in this function)
+   45 |     pPublicacionesidPublicacion = generarIdNuevo();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\publicacion.c:45:5: note: each undeclared identifier is reported only once for each function it appears in
+20:50:35 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+20:50:48 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'publicacion_altaForzada':
+..\src\publicacion.c:37:34: error: invalid type argument of '->' (have 'Publicacion' {aka 'struct <anonymous>'})
+   37 |    strncpy(pPublicaciones[indice]->TextoDeAviso,aviso,64);
+      |                                  ^~
+20:50:54 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+Info: Nothing to build for prueba 12
+Info: Nothing to build for prueba 12
+20:51:37 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:51:39 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:56:59 **** Rebuild of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Main.o" "..\\src\\Main.c" 
+gcc -O0 -g3 -pedantic-errors -Wall -c -fmessage-length=0 -o "src\\informes.o" "..\\src\\informes.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\cliente.o" "..\\src\\cliente.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\utn.o" "..\\src\\utn.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+Info: Nothing to build for prueba 12
+Info: Nothing to build for prueba 12
+20:58:08 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:58:09 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+20:59:31 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+21:00:00 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+21:00:34 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:00:36 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+21:01:36 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:01:38 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+21:01:49 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:01:51 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+21:03:00 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+21:04:06 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12
+21:04:34 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+..\src\publicacion.c: In function 'eliminarPublicacionesPorId':
+..\src\publicacion.c:487:20: warning: passing argument 1 of 'cliente_mostrar' from incompatible pointer type [-Wincompatible-pointer-types]
+  487 |    cliente_mostrar(listPub, auxId);
+      |                    ^~~~~~~
+      |                    |
+      |                    Publicacion ** {aka struct <anonymous> **}
+In file included from ..\src\publicacion.h:4,
+                 from ..\src\publicacion.c:7:
+..\src\cliente.h:30:30: note: expected 'Cliente **' {aka 'struct <anonymous> **'} but argument is of type 'Publicacion **' {aka 'struct <anonymous> **'}
+   30 | int cliente_mostrar(Cliente* pArray[],int len);
+      |                     ~~~~~~~~~^~~~~~~~
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:04:39 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file prueba 12.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:04:41 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+21:05:19 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+21:05:42 **** Incremental Build of configuration Debug for project prueba 12 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\publicacion.o" "..\\src\\publicacion.c" 
+gcc -o "prueba 12.exe" "src\\Main.o" "src\\cliente.o" "src\\informes.o" "src\\publicacion.o" "src\\utn.o" 
+Info: Nothing to build for prueba 12

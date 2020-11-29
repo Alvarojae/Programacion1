@@ -1,0 +1,583 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <ctype.h>
+#include "utn.h"
+#include "publicacion.h"
+#include "cliente.h"
+static int generarIdNuevo(void);
+
+/**
+ * \brief Inicializa el array de publicaciones
+ * \param Publicacion list[], Es el puntero al array de publicaciones
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+int publicacion_initList(Publicacion* list[], int len)
+{
+	int retorno = -1;
+	if(list != NULL && len > 0)
+	{
+		for(int i=0;i<len;i++)
+		{
+			list[i] = 0;
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
+
+
+/**
+ * \brief busca un espacio libre
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int publicacion_buscarLibre(Publicacion* list[], int len)
+{
+	int retorno =-1;
+	int i;
+	if (list != NULL && len > 0)
+	{
+		for(i=0; i < len ;i++)
+			{
+				if (list[i]==0)
+				{
+					retorno = i;
+					break;
+				}
+			}
+	}
+	return retorno;
+}
+
+
+/* Cada vez que la llamo me devuelve un ID nuevo
+ * que nunca me devolvio antes
+ */
+
+
+static int generarIdNuevo(void)
+{
+	static int id=0; // es global para solo la fn puede usarla
+
+	//guardar el ultimo que asigne (ultimo que devolvi)
+	//para devolver 1+
+	id = id+1;
+	return id;
+}
+
+
+/**
+ * \brief Realiza el alta de un publicacion vinculando con cliente
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int publicacion_add(Publicacion* list[], int lenContra, Cliente* listPant[], int lenPant)
+{
+	int retorno = -1;
+	int espacioLibre;
+	Publicacion buffer;
+
+	if(publicacion_buscarLibre(list,lenContra)>=0)
+	{
+		espacioLibre=publicacion_buscarLibre(list, lenContra);
+	}
+	if(	list != NULL && lenContra > 0)
+	{
+		if(	cliente_print(listPant,lenPant)==0	                                                                                  &&
+			utn_getInt("\n Ingrese la id del cliente  = ", "ingrese uno correcto \n", &buffer.idCliente, 2, 9999, 1) ==0	      &&
+			utn_getInt("\nIngrese el numero de rubro = ", "ingrese un numero correcto \n", &buffer.NumeroDeRubro, 2, 9999, 1) ==0 &&
+			utn_getAviso("\nIngrese texto de aviso = ","\nError ingrese un texto mas corto",buffer.TextoDeAviso,2,LONG_NOMBRE) == 0)
+			{
+				buffer.idPublicacion= generarIdNuevo();
+				buffer.estado = 1;
+				*list[espacioLibre] = buffer;
+				printf("Se creo con exito la publicacion \n");
+				publicacion_mostrar(list, espacioLibre);
+				retorno = 0;
+			}
+	}
+	return retorno;
+}
+
+
+/**
+ * \brief Imprime los empleados  cargados
+ * \param Publicacion list[], Es el puntero al array de publicaciones
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+int publicacion_print(Publicacion* list[], int len)
+{
+	int retorno = -1;
+	int contador=0;
+	if(list != NULL && len > 0)
+	{
+		for(int i=0;i<len;i++)
+		{
+			if(list[i] != 0)
+			{
+				publicacion_mostrar(list, i);
+				contador++;
+			}
+		}
+		if (contador ==0)
+		{
+			printf("\nNo hay ningun usuario para mostrar\n");
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
+
+
+/**
+ * \brief muestra una publicacion
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+//scanf
+
+int publicacion_mostrar(Publicacion* list[],int indice)
+{
+	int retorno = -1;
+
+	if(list != NULL && indice >= 0 )
+	{
+		if(list[indice] != 0)
+		{
+			printf("Id de publicacion:%d - id de cliente:%d - Texto de aviso: %s  - Numero de rubro = %d \n",list[indice]->idPublicacion, list[indice]->idCliente ,list[indice]->TextoDeAviso, list[indice]->NumeroDeRubro);
+			retorno = 0;
+		}else
+		{
+			printf("No existe el usuario");
+		}
+	}
+	return retorno;
+}
+
+/**
+ * \brief se pasa un id y se encuentra un indice
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param int id, es el id de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int publicacion_findId(Publicacion* list[],int len,int id)
+{
+	int retorno =-1;
+	if(list != NULL && len > 0)
+		{
+			for(int i=0;i<len;i++)
+			{
+				if(list[i] != 0 && list[i]->idPublicacion== id)
+				{
+					retorno = i;
+					break;
+				}
+			}
+		}
+	return retorno;
+}
+
+
+/**
+ * \brief muestra una publicacion pausadas o activas
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int estado, es el estado que deseas mostrar
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int mostrarPublicacionesPausadasOActivas(Publicacion* list[],int len,int estado)
+{
+	int retorno = -1;
+	if(list != NULL && len > 0)
+	{
+		for(int i=0;i<len;i++)
+		{
+			if(list[i] != 0 && list[i]->estado == estado)
+			{
+				publicacion_mostrar(list, i);
+			}
+		}
+		retorno = 1;
+	}
+	return retorno;
+}
+
+/**
+ * \brief pausa una publicacion
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int pausarPublicacion (Publicacion* list[],int len,Cliente * listCli[], int lenCli)
+{
+	int auxIndice;
+	int auxId;
+	int idCliente;
+	char auxModificar;
+	int retorno=-1;
+	if(list != NULL && listCli != NULL && len > 0 && lenCli> 0)
+	{
+		if(utn_getInt("\n Ingrese la id del publicacion  = ", "ingrese uno correcto \n", &auxId, 2, 9999, 1) ==0)
+		{
+			auxIndice=publicacion_findId(list, len, auxId);
+			idCliente=list[auxIndice]->idCliente;
+
+			if(cliente_findId(listCli, lenCli, idCliente )!=-1 && list[auxIndice]->estado==1)
+			{
+				cliente_mostrar(listCli, cliente_findId(listCli, lenCli, idCliente ));
+				publicacion_mostrar(list, auxIndice);
+				utn_getChar("\ndesea cambiar el estado de esta publicacion (s - n) = " , "Ingrese s -n" , &auxModificar, 3);
+				if (auxModificar=='s' && list[auxIndice]->estado!=0)
+				{
+					list[auxIndice]->estado=0;
+					auxIndice=1;
+					retorno=1;
+					printf("Se pauso la publicacion\n");
+				}else
+				{
+					printf("se cancelo el cambio del estado\n");
+				}
+			}else
+				printf("no existe el usuario dado de alta\n");
+		}
+	}
+	return retorno;
+}
+
+/**
+ * \brief activa una publicacion
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int reanudarPublicacion (Publicacion* list[],int len,Cliente * listCli[], int lenCli)
+{
+	int auxIndice;
+	int auxId;
+	int idCliente;
+	char auxModificar;
+	int retorno=-1;
+	if(list != NULL && listCli != NULL && len > 0 && lenCli> 0)
+	{
+		if(utn_getInt("\n Ingrese la id del publicacion  = ", "ingrese uno correcto \n", &auxId, 2, 9999, 1) ==0)
+		{
+			auxIndice=publicacion_findId(list, len, auxId);
+			idCliente=list[auxIndice]->idCliente;
+
+			if(cliente_findId(listCli, lenCli, idCliente )!=-1 && list[auxIndice]->estado==0)
+			{
+				cliente_mostrar(listCli, cliente_findId(listCli, lenCli, idCliente ));
+				publicacion_mostrar(list, auxIndice);
+				utn_getChar("\ndesea cambiar el estado de esta publicacion (s - n) = " , "Ingrese s - n" , &auxModificar, 3);
+				if (auxModificar=='s' && list[auxIndice]->estado!=1)
+				{
+					list[auxIndice]->estado=1;
+					auxIndice=1;
+					retorno=1;
+					printf("Se reanudo la publicacion\n");
+				}else
+				{
+					printf("se cancelo la modificacion del estado\n");
+				}
+			}else
+			printf("No existe este usuario pausado\n");
+		}
+	}
+
+	return retorno;
+}
+
+
+/**
+ * \brief fuerza la creacion de una publicacion
+ * \param Cliente* list, Es el puntero al array de publicaciones
+ * \param int len, se pasa el indice que el usuario quiere mostrar
+ * \param char * nombre, se pasa el nombre
+ * \param char * apellido, se pasa el apellido
+ * \param ichar * cuit, se pasa el cuit
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+int publicacion_altaForzada(Publicacion * list[], int len ,int idCliente,int rubro,  char * aviso)
+{
+    int retorno = -1;
+    int indice;
+    Publicacion* pPublicaciones;
+    pPublicaciones = (Publicacion*)malloc(sizeof(Publicacion));
+	if(pPublicaciones!= NULL)
+	{
+		if (publicacion_buscarLibre(list, len) >=0)
+		{
+			indice = publicacion_buscarLibre(list, len);
+			strncpy(list[indice]->TextoDeAviso,aviso,64);
+			list[indice]->idCliente = idCliente;
+			list[indice]->NumeroDeRubro=rubro;
+			list[indice]->estado=1;
+			list[indice]->idPublicacion = generarIdNuevo();
+			list[indice] = pPublicaciones;
+			retorno=0;
+		}
+	}
+    return retorno;
+}
+
+
+/**
+ * \brief Busca los usuarios dados de alta
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (indice) Ok
+ *
+ */
+
+
+
+int publicacion_buscarUsuarioDeAlta(Publicacion* list[], int len)
+{
+	int retorno =-1;
+	int i;
+	if (list != NULL && len > 0)
+	{
+		for(i=0; i < len ;i++)
+			{
+				if (list[i]!=0)
+				{
+					retorno = 1;
+					break;
+				}
+			}
+	}
+	return retorno;
+}
+
+
+
+/**
+ * \brief remueve un cliente con todas sus publicaciones
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (0) Ok
+ *
+ */
+
+
+
+int cliente_remove(Cliente* list[], int len,Publicacion* listPub[],int lenPub)
+{
+	int aux;
+	char Borrar;
+	int auxId;
+
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+	{
+		cliente_print(list, len);
+		if(	utn_getInt("\nIngrese el id del cliente que desea elimnar = ", "\n", &aux, 2, 9999999, 0)==0 && cliente_findId(list, len, aux) !=-1 )
+		{
+			auxId=cliente_findId(list, len, aux);
+			cliente_mostrar(list,auxId);
+			mostrarUsuariosPorPublicacionesPorId(list, len, listPub, lenPub, auxId);
+			utn_getChar("\ndesea eliminar este cliente? (s - n) = " , "Ingrese s -n" , &Borrar, 3);
+			if (Borrar=='s')
+			{
+				//printf("la direccion de memoria es = %p\n",list[auxId]);
+				//cliente_mostrar(list, auxId);
+				free(list[auxId]);
+				list[auxId]=0;
+				//printf("la direccion de memoria es = %p\n",list[auxId]);
+				//cliente_mostrar(list, auxId);
+				eliminarPublicacionesPorId(list, len, listPub, lenPub, auxId);
+				printf("\nse elimino correctamente el cliente\n");
+			}else
+			{
+				printf("\nse cancelo la eliminacion del cliente\n");
+			}
+		}else
+		{
+			printf("\nNo existe usuario para eliminar\n");
+		}
+	}
+ return -1;
+}
+
+
+/**
+ * \brief Muestra todas las  publicaciones por Id de cliente
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Publicacion listPub[], Es el puntero al array de publicacion
+ * \param int lenPub, es el len de array
+ * \param auxId* auxId, Es el id que se utiliza para mostrar
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (1) Ok
+ *
+ */
+
+int mostrarUsuariosPorPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId)
+{
+	int retorno = -1;
+	int i ;
+	for(i =0;i<lenPub;i++)
+	{
+		if(listPub[i]!= 0 && list[auxId]->idCliente == listPub[i]->idCliente && list[auxId] !=0)
+		{
+			publicacion_mostrar(listPub, i);
+			retorno = 1;
+		}
+	}
+	return retorno;
+}
+
+
+/**
+ * \brief elimina todas las  publicaciones por Id de cliente
+ * \param Publicacion list[], Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Publicacion listPub[], Es el puntero al array de publicacion
+ * \param int lenPub, es el len de array
+ * \param auxId* auxId, Es el id que se utiliza para mostrar
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (1) Ok
+ *
+ */
+int eliminarPublicacionesPorId(Cliente* list[], int len,Publicacion* listPub[],int lenPub,int auxId)
+{
+	int retorno = -1;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+	{
+		for(int i =0;i<lenPub;i++)
+		{
+			if(listPub[i]!= 0 && list[auxId]->idCliente == listPub[i]->idCliente )
+			{
+				listPub[i]=0;
+
+				retorno=1;
+			}
+		}
+	}
+	return retorno;
+}
+
+
+
+
+
+
+/**
+ * \brief Imprimi todos clientes con sus publicaciones
+ * \param Publicacion list, Es el puntero al array de publicacion
+ * \param int len, es el len de array
+ * \param Cliente* listPant, Es el puntero al array de cliente
+ * \param int lenPant, es el len de array
+ * \return (-1) Error / (indice) Ok
+ *
+ */
+
+
+
+
+int publicacion_imprimirClientes(Cliente* list[], int len,Publicacion* listPub[],int lenPub)
+{
+	int auxId;
+	int contador=0;
+	if(list != NULL && listPub != NULL && len > 0 && lenPub> 0)
+	{
+		for(int i=0; i < len ;i++)
+		{
+			if (list[i]!=0)
+			{
+				contador=0;
+				printf("Id cliente:%d - Nombre:%s  - apellido:%s - cuit:%s " ,list[i]->idCliente,list[i]->name,list[i]->lastName,list[i]->cuit);
+				auxId=list[i]->idCliente;
+
+				for(int j=0; j < lenPub ;j++)
+				{
+					if(auxId==listPub[j]->idCliente && listPub[j]!=0)
+					{
+						//publicacion_mostrar(listPub, j);
+						contador++;
+					}
+				}
+				printf("- Cantidad de avisos=%d\n",contador);
+			}
+		}
+	}
+	return -1;
+}
+
+
+
+
+
+/*
+ * \ brief - Ordena el array por rubro.
+ * \ param - Aviso* list, recibe el array a utilizar.
+ * \ param - int len, indica la longitud del array.
+ * \ param - int order, indica el orden de los elementos. 1 en caso de ascendente y 0 en caso de descendente.
+ * \ return - (-1) en caso de error / (0) en caso de funcionar.
+
+
+int publicacion_sortByRubro(Publicacion* list, int len, int order)
+{
+    int retorno = -1;
+    int i;
+    Publicacion aux;
+    int flagSwap = 1;
+    if(list != NULL && len > 0 && (order == 0 || order== 1))
+    {
+        while(flagSwap)
+        {
+            flagSwap = 0;
+            for (i = 0; i < (len - 1); i++)
+            {
+                if(    (order == 1 &&
+                    list[i].NumeroDeRubro < list[i+1].NumeroDeRubro) ||
+                    (order == 0 &&
+                    list[i].NumeroDeRubro > list[i+1].NumeroDeRubro))
+                {
+                    aux = list[i];
+                    list[i] = list[i+1];
+                    list[i+1] = aux;
+                    flagSwap = 1;
+                }
+            }
+        }
+        retorno = 0;
+    }
+    return retorno;
+}
+
+
+*/

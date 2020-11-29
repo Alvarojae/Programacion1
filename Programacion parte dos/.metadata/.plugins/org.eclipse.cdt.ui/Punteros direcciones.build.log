@@ -1,0 +1,7 @@
+20:55:45 **** Incremental Build of configuration Debug for project Punteros direcciones ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Punteros direcciones.o" "..\\src\\Punteros direcciones.c" 
+gcc -o "Punteros direcciones.exe" "src\\Punteros direcciones.o" 
+
+20:55:45 Build Finished. 0 errors, 0 warnings. (took 472ms)
+

@@ -1,0 +1,30 @@
+/*
+ * informes.h
+ *
+ *  Created on: 10 Oct 2020
+ *      Author: Alvaro
+ */
+
+#ifndef INFORMES_H_
+#define INFORMES_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <ctype.h>
+#include "utn.h"
+#include "publicacion.h"
+#include "cliente.h"
+
+int ContadorDeInactivas(Publicacion* list,int len);
+int contadorClienteConMasAvisos(Cliente* list[], int len,Publicacion* listPub,int lenPub);
+int contarRubroConMasAvisos(Publicacion* listPub,int lenPub);
+int contarClientesYAvisosPorId(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i);
+int contarRubrosPorId(Publicacion* listPub,int lenPub, int i);
+
+int contadorClienteConMasAvisosActivosOPausados(Cliente* list[], int len,Publicacion* listPub,int lenPub,int estado);
+int contarClientesYAvisosPorIdActivosOPausado(Cliente* list[], int len,Publicacion* listPub,int lenPub, int i ,int estado);
+//int publicacion_modificar(Publicacion* list,int len);
+
+#endif /* INFORMES_H_ */
